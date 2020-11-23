@@ -74,9 +74,10 @@ class Auth
     /**
      * Generate auth url for oauth flow
      * @param string $state
+     * @param bool $form_post if true will send POST request to redirect_uri, otherwise send GET request
      * @return string
      */
-    public function genAuthUrl(string $state): string
+    public function genAuthUrl(string $state, bool $form_post = false): string
     {
         $params = [
             "response_type" => "code",
@@ -85,6 +86,11 @@ class Auth
             "scope" => "notify",
             "state" => $state,
         ];
+
+        if ($form_post) {
+            $params["response_mode"] = "form_post";
+        }
+
         return static::OAUTH_URL . '/authorize?' . http_build_query($params);
     }
 
