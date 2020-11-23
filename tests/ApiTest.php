@@ -3,6 +3,9 @@
 namespace Tests\LINENotify;
 
 use LINENotify\Api;
+use LINENotify\Message\Image;
+use LINENotify\Message\Notify;
+use LINENotify\Message\Sticker;
 use LINENotify\Response\StatusResponse;
 
 /**
@@ -43,6 +46,25 @@ class ApiTest extends TestCase
     {
         $this->mockRequest();
         $this->assertTrue(Api::create('test')->notify(['message' => 'test']));
+    }
+
+    public function sendNotifyProvider()
+    {
+        return [
+            [new Notify()],
+            [new Image('test')],
+            [new Sticker(11537, 52002734)],
+        ];
+    }
+
+    /**
+     * @dataProvider sendNotifyProvider
+     * @param $notify
+     */
+    public function testSendNotify(Notify $notify)
+    {
+        $this->mockRequest();
+        $this->assertTrue($notify->send('access token', 'message'));
     }
 
     /**
