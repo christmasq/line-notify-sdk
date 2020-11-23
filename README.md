@@ -18,13 +18,6 @@ Provide LINE notify oauth & send notify methods
  * Composer
  
 ## Installation
- * Add vcs setting to repositories of composer.json
- ```
-    {
-        "type": "vcs",
-        "url": "git@gitlab.com:chrischuang/line-notify-sdk.git"
-    },
-```
 
  * Use composer to install line-notify-sdk
 ```shell script
