@@ -3,8 +3,7 @@
     "description": "Provide mothods for LINE notify oauth & send notify",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^7.2",
-        "ext-openssl": "*"
+        "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5",
@@ -26,6 +25,5 @@
             "Tests\\LINENotify\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
     "license": "MIT"
 }
