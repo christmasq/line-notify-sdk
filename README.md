@@ -18,7 +18,7 @@ Provide LINE notify oauth & send notify methods
  
 ## Installation
 
-Use composer to install api-line-sdk
+Use composer to install line-notify-sdk
 ```shell script
 $ composer require "chrischuang/line-notify-sdk"
 ```
@@ -44,6 +44,7 @@ $ composer require "chrischuang/line-notify-sdk"
    * Send notify message by access token
    
  ### OAuth flow examples
+  * Generate auth url and authorize
 ```php
 // Necessary parameters
 $client_id = 'client id of LINE Notify services';
@@ -55,6 +56,15 @@ $state = 'user info of the key uses to verify the correctness of the flow';
 $auth_url = LINENotify\Auth::create($client_id, $client_secret, $redirect_uri)->genAuthUrl($state);
 
 // Step2: Redirect to auth url and binding user or group, redirect to callback url and return `code` & `state` parameters
+```
+
+  * Get access token after callback
+```php
+// Necessary parameters
+$client_id = 'client id of LINE Notify services';
+$client_secret = 'client secret of LINE Notify services';
+$redirect_uri = 'callback url for accept oauth result';
+$state = 'user info of the key uses to verify the correctness of the flow';
 $code = 'return by authorize action';
 
 // Step3: Get access token by code
@@ -97,7 +107,6 @@ $image_url = 'image original url';
 $image_thumb_nail_url = 'image thumb nail url'; // if null then setting by image_url
 
 // Create message object
-$notify = new LINENotify\Message\Notify();
 $image = new LINENotify\Message\Image($image_url, $image_thumb_nail_url);
 
 // Send notify message
@@ -114,7 +123,6 @@ $package_id = 'package id of LINE stickers';
 $sticker_id = 'sticker id of LINE stickers';
 
 // Create message object
-$notify = new LINENotify\Message\Notify();
 $sticker = new LINENotify\Message\Sticker($package_id, $sticker_id);
 
 // Send notify message
