@@ -11,6 +11,7 @@ Provide LINE notify oauth & send notify methods
 
  * LINE Notify API Document: [doc](https://notify-bot.line.me/doc/)
  * LINE Notify My Service Lists: [web](https://notify-bot.line.me/my/services/)
+ * Available sticker list: [pdf](https://devdocs.line.me/files/sticker_list.pdf)
 
 ## Requirements
  * PHP 7.2 or later
@@ -121,7 +122,7 @@ $image->send($access_token, $message);
 ```
 
  * Send sticker message
-   * Available sticker list: [pdf](https://drive.google.com/viewerng/viewer?url=https://developers.line.me/media/messaging-api/sticker_list.pdf)
+   * Available sticker list: [pdf](https://devdocs.line.me/files/sticker_list.pdf)
 ```php
 // Necessary parameters
 $access_token = 'access token from oauth';
