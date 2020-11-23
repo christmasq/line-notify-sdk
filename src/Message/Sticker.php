@@ -21,10 +21,10 @@ class Sticker extends Notify
 
     /**
      * Create Sticker notify object
-     * @param string $package_id
-     * @param string $sticker_id
+     * @param int $package_id
+     * @param int $sticker_id
      */
-    public function __construct(string $package_id, string $sticker_id)
+    public function __construct(int $package_id, int $sticker_id)
     {
         $this->package_id = $package_id;
         $this->sticker_id = $sticker_id;
