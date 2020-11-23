@@ -20,9 +20,10 @@ class AuthTest extends TestCase
             "redirect_uri" => 'https://test.com',
             "scope" => "notify",
             "state" => 'test',
+            "response_mode" => "form_post",
         ];
         $expected = Auth::OAUTH_URL . '/authorize?' . http_build_query($params);
-        $this->assertEquals($expected, $this->auth->genAuthUrl('test'));
+        $this->assertEquals($expected, $this->auth->genAuthUrl('test', true));
     }
 
     /**
