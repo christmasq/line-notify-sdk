@@ -61,7 +61,8 @@ $redirect_uri = 'callback url for accept oauth result';
 $state = 'user info of the key uses to verify the correctness of the flow';
 
 // Step1: Generate auth url by state and do authorize action
-$auth_url = LINENotify\Auth::create($client_id, $client_secret, $redirect_uri)->genAuthUrl($state);
+$form_post = true; // set true for sending POST request when callback. (GET request is default)
+$auth_url = LINENotify\Auth::create($client_id, $client_secret, $redirect_uri)->genAuthUrl($state, $form_post);
 
 // Step2: Redirect to auth url and binding user or group, redirect to callback url and return `code` & `state` parameters
 ```
