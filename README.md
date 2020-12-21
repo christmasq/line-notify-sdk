@@ -7,6 +7,8 @@
 
 Provide LINE notify oauth & send notify methods
 
+https://gitlab.com/chrischuang/line-notify-sdk
+
 ## Documentation
 
  * LINE Notify API Document: [doc](https://notify-bot.line.me/doc/)
